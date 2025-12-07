@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+string mixColors(string color1, string color2) {
+    // Convert both colors to lowercase for easier comparison
+    for (char &c : color1) c = tolower(c);
+    for (char &c : color2) c = tolower(c);
+
+    if (color1 == color2)
+        return color1; // Same color
+
+    if ((color1 == "red" && color2 == "blue") || (color1 == "blue" && color2 == "red"))
+        return "Purple";
+
+    else if ((color1 == "red" && color2 == "yellow") || (color1 == "yellow" && color2 == "red"))
+        return "Orange";
+
+    else if ((color1 == "blue" && color2 == "yellow") || (color1 == "yellow" && color2 == "blue"))
+        return "Green";
+
+    else
+        return "Invalid combination";
+}
+
+int main() {
+    string color1, color2;
+
+    cout << "🎨 COLOR MIXING SIMULATOR 🎨\n";
+    cout << "Primary colors: Red, Blue, Yellow\n\n";
+
+    cout << "Enter first color: ";
+    cin >> color1;
+
+    cout << "Enter second color: ";
+    cin >> color2;
+
+    string result = mixColors(color1, color2);
+
+    cout << "\nResult of mixing " << color1 << " and " << color2 << " is: " << result << endl;
+
+    return 0;
+}
